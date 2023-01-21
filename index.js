@@ -23,7 +23,7 @@ app.post("/", async (req, res) => {
 
   await Form.insertMany([Data]);
 
-  res.render("index.hbs");
+  res.render("index.pug");
 });
 app.listen(4000, () => {
   console.log("Server Live at http://localhost:4000/");
