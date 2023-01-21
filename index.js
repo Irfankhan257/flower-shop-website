@@ -1,15 +1,16 @@
 const express = require("express");
 const app = express();
 const Form = require("./mongodb");
-const hbs = require("hbs");
+const pug = require("pug");
 
 app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/images"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.set("view engine", "hbs");
+app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
-  res.render("index.hbs");
+  res.render("index.pug");
 });
 
 app.post("/", async (req, res) => {
@@ -24,6 +25,6 @@ app.post("/", async (req, res) => {
 
   res.render("index.hbs");
 });
-app.listen(3000, () => {
-  console.log("Server Live at http://localhost:3000/");
+app.listen(4000, () => {
+  console.log("Server Live at http://localhost:4000/");
 });
